@@ -1,12 +1,3 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
@@ -64,3 +55,125 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## TAXI SYSTEM
+
+### Project Overview
+A taxi booking system API for managing cars, users, and bookings".
+
+## Setup Instructions
+## Requirements
+ - Laravel Framework (Version 11.29.0 or higher)
+ - PHP 8.1 or above
+ - MySQL Database
+ - Composer
+
+
+### Installation Steps
+Clone the Repository
+
+1. git clone https://github.com/collins-swai/taxi-system-api
+2. cd your-repo
+
+## Install Dependencies
+1. composer install
+2. Configure Environment
+3. Rename .env.example to .env
+Update the .env file with your database credentials and app settings. Use the credentials provided by your hosting provider if hosted on Railway or a similar service.
+
+### Generate Application Key
+    php artisan key:generate
+
+### Run Migrations
+    php artisan migrate
+
+### Start the Application
+    php artisan serve
+
+
+## API Documentation
+## Authentication
+
+### Register User
+
+    Endpoint: POST /api/register
+
+Request Payload:
+
+    {
+       "name": "string",
+       "email": "string",
+       "password": "string",
+       "phone": "string"
+    }
+
+Response:
+
+     {
+        "success": true,
+        "message": "User registered successfully",
+        "data": { "id": "int", "token": "string" }
+     }
+
+### Login User
+
+    Endpoint: POST /api/login
+
+Request Payload:
+
+     {
+        "email": "string",
+        "password": "string"
+     }
+
+
+Response:
+
+     {
+        "success": true,
+        "message": "Login successful",
+        "data": { "id": "int", "token": "string" }
+     }
+
+
+## Cars Management
+### Get All Cars
+
+    Endpoint: GET /api/cars
+
+Response:
+
+      {
+         "success": true,
+         "data": [
+            {
+             "car_id": "int",
+             "car_name": "string",
+             "model": "string",
+             "price": "float",
+             "availability_status": "boolean"
+            }
+        ]
+    }
+
+### Create Car
+    Endpoint: POST /api/cars
+Request Payload:
+
+    {
+       "car_name": "string",
+       "model": "string",
+       "price": "float",
+       "availability_status": "boolean"
+    }
+
+Response:
+
+     {     
+       "success": true,
+       "message": "Car created successfully",
+       "data": { "car_id": "int" }
+     }
+
+## Thank you Sleek Properties
+I'd like to thank Sleek Properties, and every single individual that helped in bringing this learning experience. Thank you!
