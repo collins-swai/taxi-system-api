@@ -32,9 +32,11 @@ class CarController extends Controller
     {
         $validatedData = $request->validate([
             'car_name' => 'required|string',
+            'color' => 'required|string', // Validate color here
             'model' => 'required|string',
             'price' => 'required|numeric',
             'availability_status' => 'required|boolean',
+            'vin' => 'required|string|unique:cars,vin', // Add vin validation here
         ]);
 
         $car = Car::create($validatedData);
@@ -68,9 +70,11 @@ class CarController extends Controller
 
         $validatedData = $request->validate([
             'car_name' => 'sometimes|required|string',
+            'color' => 'sometimes|required|string', // Validate color here
             'model' => 'sometimes|required|string',
             'price' => 'sometimes|required|numeric',
             'availability_status' => 'sometimes|required|boolean',
+            'vin' => 'sometimes|required|string|unique:cars,vin,' . $id, // Allow current car's vin
         ]);
 
         if (empty($validatedData)) {
